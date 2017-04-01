@@ -1,0 +1,31 @@
+{
+	"manifest_version": 2,
+	"name": "AdRemove",
+	"description": "유튜브, 네이버tv 광고제거",
+	"version": "1.0.0",
+	"browser_action": {
+		"default_icon": "img/icon.png",
+		"default_popup": "index.html"
+	},
+	"permissions": [
+		"tabs",
+		"<all_urls>"
+	],
+	"content_scripts": [
+		{
+			"run_at": "document_end",
+			"matches": [
+				"http://tv.naver.com/*",
+				"https://*.youtube.com/watch*"
+			],
+			"js": [
+				"js/jquery-3.2.0.slim.min.js",
+				"main.js"
+			]
+		}
+	],
+	"web_accessible_resources": [
+		"img/*.png",
+		"img/*.gif"
+	]
+}
